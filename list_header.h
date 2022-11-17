@@ -11,7 +11,6 @@
 typedef int Elem_t;
 
 const int POISON = -429;
-const int NO_ELEM = -2;
 
 struct array{
     Elem_t * data;
@@ -26,9 +25,8 @@ struct LIST {
     int capacity;
     int free_head;
     int free_tail;
+    int sorted;
 };
-
-
 
 enum command{
     Exit = -2,
@@ -42,6 +40,10 @@ enum list_teams{
     cmd_pop = 1
 };
 
+enum sort_command{
+    not_sorted = 0,
+    sorted = 1
+};
 
 void DUMP_MIN(const char * function, int line);
 void list_ctor( LIST * list, int count_elements, const Elem_t * text, const int len);
@@ -67,3 +69,5 @@ void list_push_tail(LIST * list);
 void list_push_middle(LIST * list, const int command_place);
 void list_push_head(LIST * list);
 int searching_place(int * array, int elem_logical, int head);
+void list_sorting(LIST * list);
+int find_place(LIST * list, int command_place);
