@@ -74,7 +74,7 @@ void list_push_head(LIST * list)
 
 
 
-Elem_t list_pop(LIST * list, const int command_place)
+Elem_t list_pop(LIST * list, const int command_place)   //am i need to do lots of function, like in push (push head, tail, middle)?
 {   
     Elem_t ret_val = POISON;
     if (list->head == list->tail)
