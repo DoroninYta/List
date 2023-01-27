@@ -90,7 +90,6 @@ Elem_t list_pop(LIST * list, const int command_place)   //am i need to do lots o
         
         list->ar.data[list->tail] = POISON;
 
-
         list->tail--;
 
         return ret_val;
@@ -236,10 +235,7 @@ void list_ctor( LIST * list, int count_elements, const Elem_t * text, const int 
     assert(list);
 
     list->capacity = count_elements;
-    list->ar.data = ft_calloc(count_elements);
-    list->ar.next = (int *)calloc(list->capacity, sizeof(list->ar.next[0]));
-    list->ar.prev = (int *)calloc(list->capacity, sizeof(list->ar.prev[0]));
-    
+    list->array.free = (struct array *)calloc(count_elements, sizeof()
     assert(list->ar.data);
     assert(list->ar.next);
     assert(list->ar.prev);
@@ -286,7 +282,7 @@ void text_push(LIST * list, const Elem_t * text, const int array_size)
 }    
 
 
-
+//dont using now
 void list_real(LIST * list)
 {   
     assert(list);
