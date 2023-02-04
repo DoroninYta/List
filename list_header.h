@@ -15,7 +15,7 @@ typedef int Elem_t;
 const int POISON = -429;
 
 struct array {
-    Elem_t data;
+    Elem_t elem;
     int next;
     int prev;
 };
@@ -24,10 +24,8 @@ struct LIST {
     int head;
     int tail;
     struct array * data;
-    struct array * free;
     int capacity;
     int free_head;
-    int free_tail;
     int sorted;
 };
 
@@ -54,14 +52,24 @@ enum sort_command{
     sorted = 1
 };
 
+
+
+void list_push_back(LIST * list, Elem_t el);
+void list_ctor(LIST * list, int count_elements);
+void list_status(const LIST * list, int line, const char * fun);
+
+
+
+//
+//
+//
+//
 void DUMP_MIN(const char * function, int line);
-void list_ctor(LIST * list, int count_elements, const Elem_t * text, const int len);
 void list_real(LIST * list); // make static
 void checking_rise(int * number, int capacity); // make static
 void checking_down(int * number, int capacity); // make static
 int list_push(LIST * list, Elem_t value, int command);
 Elem_t list_pop(LIST * list, const int command_place);
-void list_status(const LIST * list, int line, const char * fun);
 Elem_t * ft_calloc(const int size); // make static
 void text_push(LIST * list, const Elem_t * text, const int array_size);
 void poison_input(Elem_t * array, const int head, const int tail); // make static
